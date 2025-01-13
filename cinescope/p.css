@@ -1,0 +1,253 @@
+/* Body styling */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background: url('images/BG5.png') no-repeat top center fixed;
+  background-size: cover;
+  padding-top: 20px;
+  overflow: hidden;
+}
+
+/* Header styling */
+.header {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Brand title styling */
+.brand-title {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: black;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+/* Logo styling */
+.logo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 200px;
+  height: auto;
+}
+
+/* Profile box styling */
+.profile-box {
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  background-color: rgba(51, 51, 51, 0.9);
+  color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  text-align: center;
+}
+
+/* Profile header styling */
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Profile image styling */
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #ffd700;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+/* Username styling */
+.username {
+  font-size: 1em;
+  color: #ddd;
+  text-align: center;
+  margin-top: 5px;
+  margin-right: 17px;
+}
+
+/* Profile details styling */
+.profile-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-name {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.profile-email {
+  color: #ccc;
+  font-size: 1.2em;
+  margin-top: 5px;
+}
+
+/* Edit profile button styling */
+.edit-profile {
+  background-color: #aaa;
+  color: #333;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85em;
+  max-width: 300px;
+  width: auto;
+  margin-top: 5px;
+  margin-left: auto;
+}
+
+/* Reviews and Bio container styling */
+.reviews-bio-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Bio section styling */
+.bio-section {
+  flex: 1;
+  margin-right: 20px;
+}
+
+/* Reviews section styling */
+.reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 15px;
+}
+
+.reviews-label {
+  font-weight: bold;
+  color: #f9a825;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.reviews-count {
+  font-size: 2.0em;
+  background-color: #666;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.bio-label {
+  font-weight: bold;
+  color: white;
+  margin-bottom: 5px;
+  margin-left: -450px;
+}
+
+.bio-text {
+  width: 80%;
+  background-color: #AAA;
+  color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+  overflow: hidden;
+  min-height: 50px;
+  margin-left: -100px;
+}
+
+/* My Favorites section styling */
+.favorites-section {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.favorites-label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.favorites-container {
+  display: flex;
+  gap: 20px; /* Space between each movie */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Disable vertical scrolling */
+  padding: 10px;
+  scroll-behavior: smooth; /* Smooth scrolling */
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Hide scrollbar */
+.favorites-container::-webkit-scrollbar {
+  display: none;
+}
+.favorites-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.movie {
+  min-width: 120px; /* Set consistent width */
+  flex-shrink: 0; /* Prevent shrinking */
+  text-align: center;
+  border: 5px solid white;
+  
+}
+
+.movie-image {
+  width: 100px; /* Fixed width for uniform size */
+  height: 150px; /* Fixed height for uniform size */
+  object-fit: cover; /* Crop image to fit the container */
+  border-radius: 8px;
+}
+
+.stars {
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+.back-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.back-link:before {
+  content: "←";
+  margin-right: 5px;
+}
+.profile-box {
+  overflow-y: scroll;
+  scrollbar-width: none; /* For Firefox */
+}
+
+.profile-box::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}

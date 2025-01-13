@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineScope</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Wishlist heart button styling */
+        .wishlist-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: color 0.3s ease;
+            z-index: 10; /* Ensures it stays on top */
+        }
+    
+        .wishlist-btn.active i {
+            color: rgb(56, 176, 56); /* Changes the heart to green when active */
+        }
+    
+        .movie-card-vertical, .movie-card-horizontal {
+            position: relative; /* Ensures absolute positioning of child elements works */
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            width: 200px; /* Adjust width if needed */
+        }
+    
+        .movie-card-vertical:hover, .movie-card-horizontal:hover {
+            transform: scale(1.05);
+        }
+    
+        .movie-card-vertical img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+    
+        .movie-info {
+            padding: 10px;
+            background-color: #000; /* Background for text readability */
+            color: #fff;
+            border-radius: 0 0 10px 10px;
+        }
+    
+        .movie-info h5 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    
+        .movie-info p {
+            margin: 5px 0 0;
+            font-size: 0.875rem;
+        }
+    </style>
+    
+    
+    
+    
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark px-0">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="images/logo2.png" alt="CineScope Logo" class="logo" style="margin-left: -1px;"> 
+            <span class="website-title ms-1">CineScope</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="wishlistDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Wishlist
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="wishlistDropdown" id="wishlistDropdownMenu">
+                        <li><span class="dropdown-item">No movies added to wishlist</span></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section with Search Bar -->
+    <header class="header-section text-center text-white">
+        <h1>Welcome to Cinescope</h1>
+        <p>Your lens into the captivating world of movies and series!</p>
+        <div class="search-bar mx-auto">
+            <input type="text" class="form-control" placeholder="Search a movie title, series...">
+            <button class="btn btn-light"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <!-- Vertically Oriented Movie List (8 in a row) -->
+    <section class="movie-list container my-5">
+        <h2 class="section-title">Top Movies</h2>
+        <div class="movie-slider-vertical slider">
+            <!-- Movie Card Template - Repeat for each movie -->
+            <div class="movie-card-vertical" onclick="openReviewPage('Bhool Bhulaiya 3')">
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'Bhool Bhulaiya 3')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <img src="images/movie1.png" alt="Bhool Bhulaiya 3 Poster">
+                <div class="movie-info">
+                    <h5>Bhool Bhulaiya 3</h5>
+                    <p>Genre: Comedy/Horror<br>Rating: ★ 7.8/10</p>
+                </div>
+            </div>
+
+            <div class="movie-card-vertical" onclick="openReviewPage('Stree 2')">
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'Stree 2')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <img src="images/movie8.png" alt="Stree 2 Poster">
+                <div class="movie-info">
+                    <h5>Stree 2</h5>
+                    <p>Genre: Comedy/Horror<br>Rating: ★ 7/10</p>
+                </div>
+            </div>
+            <div class="movie-card-vertical"onclick="openReviewPage('Venom')">
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'Venom')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <img src="images/movie2.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+                <div class="movie-info">
+                    <h5>Venom</h5>
+                    <p>Genre: Action/Sci-Fi<br>Rating: ★ 5.9/10</p>
+                </div>
+            </div>
+            <div class="movie-card-vertical"onclick="openReviewPage('Vicky Vidya Ka Woh Wala Video')">
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'Vicky Vidya Ka Woh Wala Video')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <img src="images/movie3.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+                <div class="movie-info">
+                    <h5>Vicky Vidya Ka Woh Wala Video</h5>
+                    <p>Genre: Comedy/Horror<br>Rating: ★ 7.8/10</p>
+                </div>
+            </div>
+            <div class="movie-card-vertical"onclick="openReviewPage('Jigra')">
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'Jigra')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <img src="images/movie4.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+                <div class="movie-info">
+                    <h5>Jigra</h5>
+                    <p>Genre: Drama/Thriller
+                        <br>Rating: ★ 8.1</p>
+                </div>
+            </div>
+            <div class="movie-card-vertical"onclick="openReviewPage('Vettaiyan')">
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'Vettaiyan')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <img src="images/movie5.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+                <div class="movie-info">
+                    <h5>Vettaiyan</h5>
+                    <p>Genre: Action/Crime/Thriller<br>Rating: ★ 7.9/10</p>
+                </div>
+            </div>
+            <div class="movie-card-vertical"onclick="openReviewPage('The Wild Robot')">
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'The Wild Robot')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <img src="images/movie6.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+                <div class="movie-info">
+                    <h5>The Wild Robot</h5>
+                    <p>Genre: Comedy/Horror<br>Rating: ★ 7.8/10</p>
+                </div>
+            </div>
+            <div class="movie-card-vertical"onclick="openReviewPage('The A.I. Dharma Story')">
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'The A.I. Dharma Story')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <img src="images/movie7.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+                <div class="movie-info">
+                    <h5>The A.I. Dharma Story</h5>
+                    <p>Genre: Comedy/Horror<br>Rating: ★ 7.8/10</p>
+                </div>
+            </div>
+            <div class="movie-card-vertical"onclick="openReviewPage('Singham Again')">
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'Singham Again')">
+                    <i class="fas fa-heart"></i>
+                </button>
+                <img src="images/movie9.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+                <div class="movie-info">
+                    <h5>Singham Again</h5>
+                    <p>Genre: Action/Drama<br>Rating: ★ 7.6/10</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Horizontally Oriented Movie List (6 in a row) -->
+<section class="movie-list container my-5">
+    <h2 class="section-title">Trending Now</h2>
+    <div class="movie-slider-horizontal slider">
+        <!-- Movie Card Template - Repeat for 6 cards -->
+
+        <!-- Repeat similar movie cards 6 times -->
+        <div class="movie-card-horizontal" onclick="openReviewPage('Strong Girl Nam-Soon')">
+            <img src="images/movie10.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+            <div class="movie-info">
+                <h5>Strong Girl Nam-Soon</h5>
+                <p>Genre: Comedy/Fantasy/Action<br>Rating: ★ 8.2/10</p>
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'Strong Girl Nam-Soon')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="movie-card-horizontal" onclick="openReviewPage('My Demon')">
+            <img src="images/movie11.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+            <div class="movie-info">
+                <h5>My Demon</h5>
+                <p>Genre: Fantasy/Romance/Thriller<br>Rating: ★ 8.5/10</p>
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'My Demon')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="movie-card-horizontal" onclick="openReviewPage('XO, Kitty')">
+            <img src="images/movie12.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+            <div class="movie-info">
+                <h5>XO, Kitty</h5>
+                <p>Genre: Comedy/Drama/Romance<br>Rating: ★ 6.6/10</p>
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'XO, Kitty')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="movie-card-horizontal" onclick="openReviewPage('Scooby-Doo!: Mystery Incorporated')">
+            <img src="images/movie13.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+            <div class="movie-info">
+                <h5>Scooby-Doo!: Mystery Incorporated</h5>
+                <p>Genre: Animation/Mystery/Comedy<br>Rating: ★ 8.1/10</p>
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'Scooby-Doo!: Mystery Incorporated')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="movie-card-horizontal" onclick="openReviewPage('Emily In Paris')">
+            <img src="images/movie14.png" alt="Movie Poster"> <!-- Replace with movie image path -->
+            <div class="movie-info">
+                <h5>Emily In Paris</h5>
+                <p>Genre: Comedy/Drama/Romance<br>Rating: ★ 6.9/10</p>
+                <button class="wishlist-btn" onclick="toggleWishlist(event, 'Emily In Paris')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> 
+<script>
+    function openReviewPage(movieTitle) {
+        // Store the movie title in local storage
+        localStorage.setItem('selectedMovie', movieTitle);
+        // Redirect to the review page
+        window.location.href = 'review.html';
+    }
+
+    // Toggle the wishlist heart icon color
+    function toggleWishlist(event, movieTitle) {
+        event.stopPropagation(); // Prevent triggering openReviewPage
+        const button = event.currentTarget;
+        const heartIcon = button.querySelector('i'); // Select the <i> tag
+
+        button.classList.toggle('active'); // Toggle the active state to change color
+        if (button.classList.contains('active')) {
+            heartIcon.style.color = 'green'; // Change color to green
+        } else {
+            heartIcon.style.color = 'rgba(255, 255, 255, 0.7)'; // Reset color to default when inactive
+        }
+
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        if (button.classList.contains('active')) {
+            wishlist.push(movieTitle);
+            console.log(`Added "${movieTitle}" to wishlist`);
+        } else {
+            wishlist = wishlist.filter(item => item !== movieTitle);
+            console.log(`Removed "${movieTitle}" from wishlist`);
+        }
+
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        updateWishlistDropdown();
+    }
+
+    // Update the wishlist dropdown
+    function updateWishlistDropdown() {
+        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        const dropdownMenu = document.getElementById('wishlistDropdownMenu');
+
+        // Clear previous items
+        dropdownMenu.innerHTML = '';
+
+        if (wishlist.length === 0) {
+            const noItems = document.createElement('li');
+            noItems.innerHTML = '<span class="dropdown-item">No movies added to wishlist</span>';
+            dropdownMenu.appendChild(noItems);
+        } else {
+            wishlist.forEach(movie => {
+                const wishlistItem = document.createElement('li');
+                wishlistItem.innerHTML = `<a class="dropdown-item" href="#">${movie}</a>`;
+                dropdownMenu.appendChild(wishlistItem);
+            });
+        }
+    }
+
+    // Initial load of the wishlist dropdown
+    document.addEventListener('DOMContentLoaded', updateWishlistDropdown);
+</script>
+</body>
+</html>

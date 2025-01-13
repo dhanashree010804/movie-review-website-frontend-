@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Retrieve the movie title from localStorage
+        const selectedMovie = localStorage.getItem('selectedMovie');
+
+        if (selectedMovie) {
+            // Display the movie title in a readable format
+            document.getElementById('movie-title').innerText = `Review for: ${selectedMovie}`;
+
+            // Clear the value from localStorage
+            localStorage.removeItem('selectedMovie');
+        }
+
+        // Star rating functionality
+        const stars = document.querySelectorAll('.stars span');
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                // Reset all stars
+                stars.forEach(s => s.classList.remove('selected'));
+
+                // Highlight the clicked star and previous ones
+                for (let i = 0; i <= index; i++) {
+                    stars[i].classList.add('selected');
+                }
+
+                // Store the rating value
+                document.getElementById('rate').value = index + 1;
+            });
+        });
+
+        // Handle form submission
+        document.querySelector('.review-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Get the review data
+            const movieTitle = selectedMovie || 'Unknown Movie';
+            const ratingValue = document.getElementById('rate').value || 0;
+            const reviewText = document.getElementById('review').value || 'No review provided.';
+
+            // Save the review data to sessionStorage
+            sessionStorage.setItem('submittedMovie', movieTitle);
+            sessionStorage.setItem('submittedRating', ratingValue);
+            sessionStorage.setItem('submittedReview', reviewText);
+
+            // Redirect to submit.html
+            window.location.href = 'submit.html';
+        });
+    });
+</script>
+<style>
+    .stars span {
+        font-size: 2rem;
+        cursor: pointer;
+        color: gray;
+    }
+
+    .stars span.selected {
+        color: gold;
+    }
+
+    /* Add responsive styles for different devices */
+    @media (max-width: 768px) {
+        .container {
+            width: 90%;
+        }
+    }
+
+    @media (min-width: 769px) {
+        .container {
+            width: 400px;
+        }
+    }
+</style>
+<body>
+    <div class="container mt-5">
+        <div class="review-box p-4 bg-dark text-white rounded">
+            <h2 class="review-title" id="movie-title">Review</h2>
+            <div class="rating-section">
+                <label for="rate" class="d-block">Rate</label>
+                <div class="stars">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <!-- Hidden input to store the rating -->
+                <input type="hidden" id="rate" name="rate" value="">
+            </div>
+            <form class="review-form">
+                <div class="form-group">
+                    <label for="review">Your Review</label>
+                    <textarea class="form-control" id="review" name="review" placeholder="Share your thoughts about the movie..." maxlength="500"></textarea>
+                    <small class="form-text text-muted text-right char-counter">0/500</small>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

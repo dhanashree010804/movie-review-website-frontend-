@@ -1,0 +1,313 @@
+/* Body styling */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: url('images/BG5.png') no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  /* Header styling */
+  .header {
+    /* width: 100%; */
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    padding: 0;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Optional: adds a blur effect */
+    z-index: 1000;
+  }
+  
+  /* Brand title styling */
+  .brand-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+  
+  /* Logo styling */
+  .logo {
+    width: 150px;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  /* Profile box styling */
+  .profile-box {
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    border-radius: 15px;
+    padding: 80px 20px 20px; /* Added top padding to accommodate fixed header */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  /* Profile header styling */
+  .profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  
+  /* Profile image styling */
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ffd700;
+    object-fit: cover;
+    margin: 0 auto 15px;
+  }
+  
+  /* Username styling */
+  .username {
+    font-size: 1em;
+    color: #ddd;
+    margin-bottom: 10px;
+  }
+  
+  /* Profile details styling */
+  .profile-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-name {
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .profile-email {
+    color: #ccc;
+    font-size: 1.2em;
+    margin-top: 5px;
+  }
+  
+  .edit-profile {
+    background-color: #aaa;
+    color: #333;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 10px;
+  }
+  
+  /* Reviews and Bio container styling */
+  .reviews-bio-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  /* Bio section styling */
+  .bio-section {
+    flex: 1;
+    min-width: 250px;
+    margin-right: 20px;
+  }
+  
+  .bio-label {
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+  }
+  
+  .bio-text {
+    width: 100%;
+    background-color: #AAA;
+    color: black;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    resize: none;
+    overflow: hidden;
+    min-height: 50px;
+    box-sizing: border-box;
+  }
+  
+  /* Reviews section styling */
+  .reviews {
+    flex: 1;
+    min-width: 200px;
+    margin-top: 15px;
+  }
+  
+  .reviews-label {
+    font-weight: bold;
+    color: #f9a825;
+    margin-bottom: 5px;
+  }
+  
+  .reviews-count {
+    font-size: 2em;
+    background-color: #666;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 5px;
+  }
+  
+  /* My Favorites section styling */
+  .favorites-section {
+    margin: 20px 0;
+  }
+  
+  .favorites-label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .favorites-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+  }
+  
+  /* Hide scrollbar */
+  .favorites-container::-webkit-scrollbar {
+    display: none;
+  }
+  .favorites-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .movie {
+    min-width: 120px;
+    flex-shrink: 0;
+    text-align: center;
+    border: 5px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .movie-image {
+    width: 100%;
+    height: auto;
+    max-width: 100px;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .stars {
+    font-size: 1.2rem;
+    margin-top: 5px;
+  }
+  
+  /* Back link styling */
+  .back-link {
+    font-size: 16px;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+  
+  .back-link:before {
+    content: "←";
+    margin-right: 5px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+    }
+  
+    .logo {
+      width: 100px;
+      margin-top: 5px;
+    }
+  
+    .logo {
+        align-self: flex-end; /* Move logo to the right on small screens */
+    }
+
+    .profile-box {
+      padding: 80px 10px 10px;
+    }
+  
+    .profile-header {
+      flex-direction: column;
+    }
+  
+    .reviews-bio-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .bio-section,
+    .reviews {
+      margin-right: 0;
+      width: 100%;
+    }
+  
+    .movie {
+      min-width: 100px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .brand-title {
+      font-size: 1.5rem;
+    }
+  
+    .profile-image {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .profile-name {
+      font-size: 1.5em;
+    }
+  
+    .profile-email {
+      font-size: 1em;
+    }
+  
+    .favorites-label {
+      font-size: 1.2rem;
+    }
+  
+    .stars {
+      font-size: 1rem;
+    }
+  }
+  

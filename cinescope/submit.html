@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Submitted</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Background for the whole page */
+        body {
+            background: url('images/background_main_page.jpg') no-repeat center center fixed; /* Add your image URL here */
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff; /* White text color for contrast */
+            margin: 0;
+        }
+
+        /* Container for the summary box */
+        .summary-box {
+            background: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* Title and summary text styles */
+        .summary-box h2 {
+            color: #28a745; /* Success green */
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .summary-box p {
+            font-size: 16px;
+            color: #e0e0e0; /* Lighter text color */
+        }
+
+        .summary-box .review-summary {
+            background: #000; /* Solid black background for the review summary */
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: left;
+            color: #fff; /* White text inside the review summary */
+        }
+
+        /* Button styles */
+        .btn-home {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-home:hover {
+            background-color: #0056b3;
+        }
+
+        /* Make the page responsive */
+        @media (max-width: 768px) {
+            .summary-box {
+                padding: 20px;
+            }
+
+            .summary-box h2 {
+                font-size: 20px;
+            }
+
+            .summary-box p,
+            .summary-box .review-summary p {
+                font-size: 14px;
+            }
+
+            .btn-home {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="summary-box">
+        <h2>Review Successfully Submitted!</h2>
+        <p>Thank you for sharing your thoughts.</p>
+
+        <div class="review-summary">
+            <h5>Review Summary:</h5>
+            <p><strong>Movie/Series:</strong> <span id="summary-movie"></span></p>
+            <p><strong>Rating:</strong> <span id="summary-rating"></span> ★</p>
+            <p><strong>Your Review:</strong></p>
+            <p id="summary-review"></p>
+        </div>
+
+        <a href="main.html" class="btn-home">Go to Home Page</a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve submitted data from sessionStorage (assuming it's saved from the review form)
+            const movie = sessionStorage.getItem('submittedMovie') || 'Unknown';
+            const rating = sessionStorage.getItem('submittedRating') || 'N/A';
+            const review = sessionStorage.getItem('submittedReview') || 'No review provided.';
+
+            // Populate the summary fields
+            document.getElementById('summary-movie').innerText = movie;
+            document.getElementById('summary-rating').innerText = rating;
+            document.getElementById('summary-review').innerText = review;
+
+            // Clear sessionStorage after displaying the review
+            sessionStorage.clear();
+        });
+    </script>
+</body>
+</html>

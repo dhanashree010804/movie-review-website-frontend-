@@ -1,0 +1,155 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Transparent Header */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.logo {
+    width: 100px;
+}
+
+.website-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Background */
+body {
+    background: url('images/background_main_page.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+.header-section {
+    padding: 20px;
+    color: #fff;
+}
+
+.section-title {
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+/* Common Slider Styles */
+.slider {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.slider::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers */
+}
+
+/* Movie Card Styles for Vertical and Horizontal Sliders */
+.movie-card-vertical, .movie-card-horizontal {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.movie-card-vertical:hover, .movie-card-horizontal:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.movie-card-vertical {
+    width: 150px;
+    height: 300px;
+}
+
+.movie-card-horizontal {
+    width: 350px;
+    height: 150px;
+    display: flex;
+}
+
+/* Movie Card Image and Info */
+.movie-card-vertical img, .movie-card-horizontal img {
+    object-fit: cover;
+}
+
+.movie-card-vertical img {
+    width: 100%;
+    height: 200px;
+}
+
+.movie-card-horizontal img {
+    width: 200px;
+    height: 100%;
+    
+}
+
+.movie-info {
+    padding: 10px;
+    
+}
+
+.movie-info h5 {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.movie-info p {
+    font-size: 0.9em;
+    color: #bbb;
+}
+
+/* Improved Vertical and Horizontal Movie Info */
+.movie-info {
+    overflow: hidden;
+    text-overflow: ellipsis; /* Handle long text */
+    white-space: nowrap;
+}
+
+/* Hide Slider Container Background */
+.slider {
+    background: transparent;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .movie-card-vertical {
+        width: 100px;
+        height: 200px;
+    }
+
+    .movie-card-horizontal {
+        width: 200px;
+        height: auto;
+        display: block;
+        text-align: left;
+    }
+    
+    .movie-card-horizontal img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-card-vertical {
+        width: 80px;
+        height: 180px;
+    }
+
+    .movie-card-horizontal {
+        width: 150px;
+    }
+
+    
+}

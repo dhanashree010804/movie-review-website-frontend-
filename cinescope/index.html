@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINESCOPE Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /* Page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('./images/BG1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        /* Logo container styling */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: right;
+        }
+
+        .logo-container p {
+            color: #ff3b3b;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .logo-container img {
+            width: 180px;
+            height: auto;
+        }
+
+        /* Login container styling */
+        .login-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Form elements styling */
+        .form-group label {
+            font-weight: bold;
+            text-align: left;
+            display: block;
+        }
+
+        .form-control {
+            background-color: #333;
+            border: none;
+            color: #fff;
+        }
+
+        .form-control:focus {
+            background-color: #333;
+            color: #fff;
+            box-shadow: none;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .remember-me input {
+            margin-right: 5px;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #000;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Links */
+        .forgot-password, .create-account {
+            color: #bbb;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover, .create-account:hover {
+            color: #ff3b3b;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .logo-container {
+                position: static;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .login-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo and tagline at the top right, centers on small screens -->
+    <div class="logo-container">
+        <p>Your Lens into Movies and Series!</p>
+        <img src="./images/logo.png" alt="Cinescope Logo">
+    </div>
+
+    <div class="login-container">
+        <!-- Login form -->
+        <h2>Welcome Back!</h2>
+        <form>
+            <!-- Email input -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <!-- Remember me and Forgot password -->
+            <div class="form-group d-flex justify-content-between">
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe" style="margin: 0;">Remember Me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+
+            <!-- Login button -->
+            <button type="submit" class="btn btn-primary">Log In</button>
+            
+            <!-- Google login button -->
+            <button type="button" class="btn btn-secondary">Log In With Google</button>
+
+            <!-- Create account link -->
+            <div class="create-account">
+                New here? <a href="signup.html">Create an account.</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('.btn-primary').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the email and password fields
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Check if fields are empty and show alert if necessary
+            if (!email) {
+                alert("Please enter your email.");
+            } else if (!password) {
+                alert("Please enter your password.");
+            } else {
+                // Redirect to index.html if both fields are filled
+                window.location.href = 'main.html';
+            }
+        });
+    </script>
+
+</body>
+</html>

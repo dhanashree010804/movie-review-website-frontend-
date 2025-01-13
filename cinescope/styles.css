@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('images/BG1.jpg'); /* Add your background image URL */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    width: 400px;
+}
+
+.review-box {
+    background: rgba(0, 0, 0, 0.8); /* Transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.review-title {
+    color: #f9f6f6; /* Gold color for the title */
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.rating-section {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.stars span {
+    font-size: 24px;
+    color: #FFD700; /* Gold color for the stars */
+    cursor: pointer;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-form label {
+    font-size: 14px;
+    text-align: left;
+    color: #fff;
+}
+
+.review-form input,
+.review-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Transparent input backgrounds */
+    color: #fff;
+    outline: none;
+}
+
+.review-form textarea {
+    height: 80px;
+    resize: none;
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.submit-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.submitted-reviews {
+    margin-top: 20px;
+    color: #FFD700; /* Gold color for the title */
+}
+
+.submitted-reviews h3 {
+    font-size: 20px;
+}
+
+/* Popcorn and movie elements */
+body::before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    width: 150px;
+    height: 150px;
+    background: url('popcorn.jpg'); /* Popcorn image */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    background: url('clapperboard.jpg'); /* Clapperboard image */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
